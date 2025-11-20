@@ -1,0 +1,29 @@
+{
+  "name": "lib-rpl-reset-webapp",
+  "version": "1.0.0",
+  "description": "A webapp that resets the RPL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sccgov-ent/Lib-RPL-RESET-WEBAPP.git"
+  },
+  "keywords": [
+    "Node",
+    "React",
+    "Library",
+    "Horizon",
+    "SQL"
+  ],
+  "author": "Zachary Ian May",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sccgov-ent/Lib-RPL-RESET-WEBAPP/issues"
+  },
+  "homepage": "https://github.com/sccgov-ent/Lib-RPL-RESET-WEBAPP#readme",
+  "dependencies": {
+    "react": "^19.2.0"
+  }
+}
