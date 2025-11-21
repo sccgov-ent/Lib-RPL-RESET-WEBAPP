@@ -19,7 +19,7 @@ export default function HealthCheck() {
     return () => { mounted = false; };
   }, []);
 
-  if (status.loading) return <div>Checking backend...</div>;
-  if (status.ok) return <div style={{ color: 'lightgreen' }}>Backend: {status.msg}</div>;
-  return <div style={{ color: 'salmon' }}>Backend Error: {status.msg}</div>;
+  if (status.loading) return <div>Checking server...</div>;
+  if (status.ok) return <div style={{ color: 'lightgreen' }}>Server Connection: {status.msg}</div>;
+  return <div style={{ color: 'salmon' }}>Server Error: {status.msg}</div>;
 }

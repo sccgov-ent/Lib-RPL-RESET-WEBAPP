@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import HealthCheck from './HealthCheck';
+import ResetRadios from './ResetRadios';
+import ResetRequest from './ResetRequest';
 
 function App() {
+  const [selectedValue, setSelectedValue] = useState('SSC');
+  const [submitClicked, setSubmitClicked] = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>RPL Reset Tool</h2>
+        { !submitClicked && <p>Select a location and click submit to reset RPL for that location:</p> }
+        <ResetRadios display={!submitClicked} setSelectedValue={setSelectedValue} selectedValue={selectedValue} buttonClicked={setSubmitClicked} />
+        <div style={{ marginTop: 32 }}>
+          <ResetRequest display={submitClicked} name={selectedValue} />
+        </div>
         <div style={{ marginTop: 16 }}>
           <HealthCheck />
         </div>

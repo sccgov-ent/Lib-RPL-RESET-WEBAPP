@@ -27,7 +27,10 @@
   },
   "homepage": "https://github.com/sccgov-ent/Lib-RPL-RESET-WEBAPP#readme",
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "emailjs": "^4.0.3",
     "express": "^5.1.0",
+    "mssql": "^12.1.0",
     "react": "^19.2.0"
   },
   "devDependencies": {
