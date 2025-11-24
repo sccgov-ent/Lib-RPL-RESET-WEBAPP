@@ -1,0 +1,30 @@
+.msauth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #404040;
+    }
+
+.login-button {
+  margin-top: 20px;
+  padding: 3px 5px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #296170;
+  border-style:outset;
+  border-color: hsl(from #195160 h s l);
+  border-width: 3px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.login-button:hover {
+  background-color: #358a8a;
+  border-color:hsl(from #257a7a h s l)
+}
+
+.login-button:active {
+  background-color: #205867;
+  border-color:hsl(from #104857 h s l)
+}
