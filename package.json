@@ -27,14 +27,16 @@
   },
   "homepage": "https://github.com/sccgov-ent/Lib-RPL-RESET-WEBAPP#readme",
   "dependencies": {
-    "@azure/msal-node": "^3.8.3",
+    "@azure/msal-browser": "^4.26.2",
+    "@azure/msal-react": "^3.0.22",
     "axios": "^1.13.2",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.3",
     "emailjs": "^4.0.3",
     "express": "^5.1.0",
-    "express-session": "^1.18.2",
+    "jwt-decode": "^4.0.0",
     "mssql": "^12.1.0",
+    "open": "^11.0.0",
     "react": "^19.2.0"
   },
   "devDependencies": {
