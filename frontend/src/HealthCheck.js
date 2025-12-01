@@ -8,7 +8,6 @@ export default function HealthCheck() {
     let mounted = true;
     api.getHealth()
       .then((data) => {
-        console.log(data);
         if (!mounted) return;
         setStatus({ loading: false, ok: true, msg: data.status });
       })

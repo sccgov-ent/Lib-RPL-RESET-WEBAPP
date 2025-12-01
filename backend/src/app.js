@@ -16,7 +16,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 allowlist = [process.env.CLOUD_INSTANCE, 'http://localhost:3000', 'http://localhost:3000/'];
 var corsOptions = {
   origin: function (origin, callback) {
-    console.log("CORS Origin:", origin);
     if (allowlist.indexOf(origin) !== -1 && !!origin) {
       callback(null, true)
     } else {

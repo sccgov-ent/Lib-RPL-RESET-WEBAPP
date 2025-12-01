@@ -6,16 +6,13 @@ export default function ResetRadios({ display, setSelectedValue, selectedValue, 
     const [affectedRows, setAffectedRows] = useState(-1);
     function ButtonHandler() {
         buttonClicked(true);
-        console.log("Click");
         api.submitResetRequest({ location: selectedValue })
           .then((data) => {
-            console.log('Reset request submitted:', data);
             setAffectedRows(data.affectedRows);
           })
           .catch((err) => {
             console.error('Error submitting reset request:', err);
           });
-        console.log("Done");
     }
     const handleRadioChange = (value) => {
         setSelectedValue(value);

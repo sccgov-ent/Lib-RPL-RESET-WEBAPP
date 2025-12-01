@@ -3,9 +3,8 @@ import './App.css';
 import HealthCheck from './HealthCheck';
 import ResetRadios from './ResetRadios';
 import ResetRequest from './ResetRequest';
-import { AuthenticatedTemplate, MsalAuthenticationTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
+import { MsalAuthenticationTemplate, UnauthenticatedTemplate} from '@azure/msal-react';
 import { InteractionType } from '@azure/msal-browser';
-import { jwtDecode } from 'jwt-decode';
 
 function ErrorComponent({error}) {
   return <div style={{ color: 'salmon' }}>Authentication Error: {error.message}</div>;
@@ -17,23 +16,6 @@ function LoadingComponent() {
 function App() {
   const [selectedValue, setSelectedValue] = useState('SSC');
   const [submitClicked, setSubmitClicked] = useState(false);
-  const msal = useMsal();
-  const token = msal.instance.acquireTokenSilent({account: msal.accounts[0], scopes:["openid", "profile"]}).then((response) => {
-    console.log("Acquired Token:");
-    console.log(response.accessToken);
-    console.log("Decoded Token:");
-    console.log(jwtDecode(response.accessToken));
-  }).catch((error) => {
-    console.error("Token acquisition failed:");
-    console.error(error);
-  });
-
-  if(msal.accounts.length > 0) {
-    console.log("User Roles:");
-    console.log(msal.accounts[0].idTokenClaims.roles);
-  }
-  console.log("MSAL Instance:");
-  console.log(msal);
 
   return <div>
     <MsalAuthenticationTemplate interactionType={InteractionType.Redirect} errorComponent={ErrorComponent} loadingComponent={LoadingComponent}>

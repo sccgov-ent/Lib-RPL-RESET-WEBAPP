@@ -11,8 +11,6 @@ const configuration = {
   }
 }
 
-console.log('MSAL Configuration:', configuration);
-
 const pca = new PublicClientApplication(configuration);
 
 function AppProvider() {
