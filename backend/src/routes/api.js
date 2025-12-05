@@ -51,7 +51,7 @@ router.post('/reset', (req, res) => {
         .input('location', sql.VarChar, location)
         .query("update request set fill_date = NULL, fill_location = NULL, fill_item# = NULL where fill_date = datediff(dd,'01 jan 1970', getdate()) and fill_location = @location and request_status = 0");
       console.log(`Affected rows: ${result.rowsAffected}`);
-      res.json({ status: 'reset initiated', location, affectedRows: result.rowsAffected[0] });
+      res.json({ status: 'reset initiated', location, affectedRows: result.rowsAffected[1] });
       const client = new SMTPClient({host: process.env.EMAIL_HOST})
       if(process.env.NODE_ENV === 'development'){
         console.log("Using DEV email recipient");

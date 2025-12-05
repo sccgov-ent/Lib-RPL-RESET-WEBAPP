@@ -98,13 +98,13 @@ export default function ResetRadios({ display, setSelectedValue, selectedValue, 
                 <div className="radioButton">
                     <input
                     type="radio"
-                    id="SSC"
+                    id="HQ"
                     name="library"
-                    value="SSC"
-                    checked={selectedValue === 'SSC'}
-                    onChange={() => handleRadioChange('SSC')}
+                    value="HQ"
+                    checked={selectedValue === 'HQ'}
+                    onChange={() => handleRadioChange('HQ')}
                     />
-                    <label htmlFor="SSC" className="radioLabel">SSC</label>
+                    <label htmlFor="HQ" className="radioLabel">HQ</label>
                 </div>
                 <div className="radioButton">
                     <input
