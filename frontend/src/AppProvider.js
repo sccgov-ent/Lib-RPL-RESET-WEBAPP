@@ -11,8 +11,14 @@ const configuration = {
   }
 }
 
+// Initialize MSAL instance
 const pca = new PublicClientApplication(configuration);
 
+/**
+ * Wraps the application with MsalProvider for authentication sub-components.
+ * 
+ * @returns {JSX.Element} The application wrapped with authentication provider.
+ */
 function AppProvider() {
   return <div><MsalProvider instance={pca}>
     <App />

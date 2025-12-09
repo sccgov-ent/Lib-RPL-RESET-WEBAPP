@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use(express.json());
+// Set up CORS to allow traffic between frontend and backend as well as the MS Cloud instance
 allowlist = [process.env.CLOUD_INSTANCE, 'http://localhost:3000', 'http://localhost:3000/'];
 var corsOptions = {
   origin: function (origin, callback) {
@@ -32,6 +33,7 @@ app.use('/api', apiRouter);
 const frontendBuild = path.join(__dirname, '..', '..', 'frontend', 'build');
 app.use(express.static(frontendBuild));
 
+// Fallback to index.html for SPA routing
 app.get('/', (req, res) => {
   res.sendFile(path.join(frontendBuild, 'index.html'));
 });

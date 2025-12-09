@@ -13,6 +13,15 @@ function LoadingComponent() {
   return <div>Loading authentication...</div>;
 }
 
+
+/**
+ * The main application component for the RPL Reset Tool.
+ * It displays components which handle authentication, location selection, and RPL reset requests.
+ * It also contains a widget to display connectivity to the backend.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
   const [selectedValue, setSelectedValue] = useState('SSC');
   const [submitClicked, setSubmitClicked] = useState(false);

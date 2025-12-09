@@ -4,6 +4,12 @@ import api from './services/api';
 export default function ResetRadios({ display, setSelectedValue, selectedValue, buttonClicked })
 {
     const [affectedRows, setAffectedRows] = useState(-1);
+    /**
+     * Handles the button click event by triggering a reset request.
+     * Sets the button as clicked, submits the reset request to the API with the selected location,
+     * On success updates the components to show the number of affected rows.
+     * Logs an error if the request fails.
+     */
     function ButtonHandler() {
         buttonClicked(true);
         api.submitResetRequest({ location: selectedValue })
@@ -14,6 +20,12 @@ export default function ResetRadios({ display, setSelectedValue, selectedValue, 
             console.error('Error submitting reset request:', err);
           });
     }
+    /**
+     * Handles the change event for radio buttons.
+     * Updates the selected value state with the provided value.
+     *
+     * @param {string} value - The value of the selected radio button.
+     */
     const handleRadioChange = (value) => {
         setSelectedValue(value);
       };
