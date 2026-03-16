@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/src/index.js && cd frontend && npm start",
+    "start": "concurrently \"node backend/src/index.js\" \"cd frontend && npm start\"",
     "start:dev": "powershell ./scripts/EnvSetup.ps1 && concurrently \"nodemon backend/src/index.js\" \"cd frontend && npm start\"",
     "build": "powershell ./scripts/EnvSetup.ps1 && cd frontend && npm run build"
   },
