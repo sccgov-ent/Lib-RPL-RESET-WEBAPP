@@ -19,6 +19,10 @@ var corsOptions = {
   origin: function (origin, callback) {
     if (allowlist.indexOf(origin) !== -1 && !!origin) {
       callback(null, true)
+    }
+    else if (!origin) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      callback(null, true);
     } else {
       callback(new Error(`${origin} Not allowed by CORS`))
     }
