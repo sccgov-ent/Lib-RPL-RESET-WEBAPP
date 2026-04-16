@@ -8,6 +8,11 @@ const port = process.env.PORT || config.port || 5001;
 pfx = process.env.SSLKEYPATH;
 passphrase = process.env.SSLKEYPASS;
 
+if (!pfx || !passphrase) {
+  console.error('SSL key path and passphrase must be set in environment variables SSLKEYPATH and SSLKEYPASS');
+  process.exit(1);
+}
+
 var options = {
   pfx: fs.readFileSync(pfx),
   passphrase: passphrase
