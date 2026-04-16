@@ -5,9 +5,12 @@ const fs = require('fs');
 
 const port = process.env.PORT || config.port || 5000;
 
+pfx = process.env.SSLKEYPATH;
+passphrase = process.env.SSLKEYPASS;
+
 var options = {
-  pfx: fs.readFileSync(process.env.SSLKEYPATH),
-  passphrase: process.env.SSLKEYPASS
+  pfx: fs.readFileSync(pfx),
+  passphrase: passphrase
 };
 
 // Start the server
