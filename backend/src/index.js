@@ -3,7 +3,7 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 
-const port = process.env.PORT || 5001;
+const port = process.env.EXPRESS_PORT || 5001;
 
 pfx = process.env.SSLKEYPATH;
 passphrase = process.env.SSLKEYPASS;
