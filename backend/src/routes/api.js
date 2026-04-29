@@ -1,5 +1,4 @@
 require('dotenv').config();
-require('emailjs')
 
 const { SMTPClient } = require('emailjs');
 const express = require('express');
