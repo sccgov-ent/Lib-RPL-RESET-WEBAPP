@@ -25,12 +25,12 @@ function LoadingComponent() {
 function App() {
   const [selectedValue, setSelectedValue] = useState('SSC');
   const [submitClicked, setSubmitClicked] = useState(false);
-  const { accounts } = useMsal();
+  let { accounts } = useMsal();
   if (!accounts || accounts.length === 0) {
     return false;
   }
-  const roles = accounts[0].idTokenClaims?.roles || [];
-  const hasAccessRole = roles.includes(process.env.REACT_APP_API_SCOPE);
+  let roles = accounts[0].idTokenClaims?.roles || [];
+  let hasAccessRole = roles.includes(process.env.REACT_APP_API_SCOPE);
 
   return <div>
     <MsalAuthenticationTemplate interactionType={InteractionType.Redirect} errorComponent={ErrorComponent} loadingComponent={LoadingComponent}>
