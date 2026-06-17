@@ -12,15 +12,6 @@ function ErrorComponent({error}) {
 function LoadingComponent() {
   return <div>Loading authentication...</div>;
 }
-function hasAccessRole() {
-  const { accounts } = useMsal();
-  const account = accounts[0];
-  if (!account) {
-    return false;
-  }
-  const roles = account.idTokenClaims?.roles || [];
-  return roles.includes(process.env.REACT_APP_API_SCOPE);
-}
 
 
 /**
@@ -34,10 +25,17 @@ function hasAccessRole() {
 function App() {
   const [selectedValue, setSelectedValue] = useState('SSC');
   const [submitClicked, setSubmitClicked] = useState(false);
+  const { accounts } = useMsal();
+  const account = accounts[0];
+  if (!account) {
+    return false;
+  }
+  const roles = account.idTokenClaims?.roles || [];
+  const hasAccessRole = roles.includes(process.env.REACT_APP_API_SCOPE);
 
   return <div>
     <MsalAuthenticationTemplate interactionType={InteractionType.Redirect} errorComponent={ErrorComponent} loadingComponent={LoadingComponent}>
-    {hasAccessRole() ? <div><p>You have the role: {process.env.REACT_APP_API_SCOPE}</p></div> : <div><p>You do not have the required role to access this application.</p></div>}
+    {hasAccessRole ? <div><p>You have the role: {process.env.REACT_APP_API_SCOPE}</p></div> : <div><p>You do not have the required role to access this application.</p></div>}
       <div className="App">
         <header className="App-header">
           <h2>RPL Reset Tool</h2>
