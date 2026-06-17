@@ -5,4 +5,4 @@ import AppProvider from './AppProvider';
 
 // Create root and render the Application
 const root = createRoot(document.getElementById('root'));
-root.render(<AppProvider />);
+root.render(<div><Title>SCCL RPL Reset</Title><AppProvider /></div>);
