@@ -26,11 +26,10 @@ function App() {
   const [selectedValue, setSelectedValue] = useState('SSC');
   const [submitClicked, setSubmitClicked] = useState(false);
   const { accounts } = useMsal();
-  const account = accounts[0];
-  if (!account) {
+  if (!accounts || accounts.length === 0) {
     return false;
   }
-  const roles = account.idTokenClaims?.roles || [];
+  const roles = accounts[0].idTokenClaims?.roles || [];
   const hasAccessRole = roles.includes(process.env.REACT_APP_API_SCOPE);
 
   return <div>
