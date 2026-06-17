@@ -3,7 +3,7 @@ import './App.css';
 import HealthCheck from './HealthCheck';
 import ResetRadios from './ResetRadios';
 import ResetRequest from './ResetRequest';
-import { MsalAuthenticationTemplate, UnauthenticatedTemplate} from '@azure/msal-react';
+import { MsalAuthenticationTemplate, UnauthenticatedTemplate, useMsal} from '@azure/msal-react';
 import { InteractionType } from '@azure/msal-browser';
 
 function ErrorComponent({error}) {
@@ -11,6 +11,15 @@ function ErrorComponent({error}) {
 }
 function LoadingComponent() {
   return <div>Loading authentication...</div>;
+}
+function hasAccessRole() {
+  const { accounts } = useMsal();
+  const account = accounts[0];
+  if (!account) {
+    return false;
+  }
+  const roles = account.idTokenClaims?.roles || [];
+  return roles.includes(process.env.REACT_APP_API_SCOPE);
 }
 
 
@@ -28,6 +37,7 @@ function App() {
 
   return <div>
     <MsalAuthenticationTemplate interactionType={InteractionType.Redirect} errorComponent={ErrorComponent} loadingComponent={LoadingComponent}>
+    {hasAccessRole() ? <div><p>You have the role: {process.env.REACT_APP_API_SCOPE}</p></div> : <div><p>You do not have the required role to access this application.</p></div>}
       <div className="App">
         <header className="App-header">
           <h2>RPL Reset Tool</h2>

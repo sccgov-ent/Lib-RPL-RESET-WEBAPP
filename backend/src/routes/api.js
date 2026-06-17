@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { SMTPClient } = require('emailjs');
+const { SMTPClient } = import('emailjs');
 const express = require('express');
 const sql = require('mssql');
 const router = express.Router();

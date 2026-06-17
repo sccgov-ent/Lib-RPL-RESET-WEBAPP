@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/src/index.js",
-    "build": "powershell ./scripts/EnvSetup.ps1 && cd frontend && npm run build"
+    "start": "sudo node backend/src/index.js",
+    "build": "./scripts/EnvSetup.sh && cd frontend && npm run build"
   },
   "repository": {
     "type": "git",
