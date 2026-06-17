@@ -20,9 +20,12 @@ const pca = new PublicClientApplication(configuration);
  * @returns {JSX.Element} The application wrapped with authentication provider.
  */
 function AppProvider() {
-  return <div><MsalProvider instance={pca}>
+  return <div>
+  <title>SCCL RPL Reset</title>
+  <MsalProvider instance={pca}>
     <App />
-  </MsalProvider></div>
+  </MsalProvider>
+  </div>
 }
 
 export default AppProvider;
